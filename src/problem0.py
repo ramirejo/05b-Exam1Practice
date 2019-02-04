@@ -9,8 +9,11 @@ These problems illustrate concepts that previous problems have not emphasized:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Jose Ramirez.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
+
+
+
 
 import rosegraphics as rg
 import testing_helper
@@ -25,7 +28,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the green doc-string for the:
+# DONE: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -189,7 +192,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -207,6 +210,11 @@ def problem0a(n):
     #        ASK FOR HELP if you do not understand this hint.
     # -------------------------------------------------------------------------
 
+    may = sum_of_digits(n)
+    if may % 2 ==1:
+        return True
+    else:
+        return False
 
 def run_test_problem0b():
     """ Tests the   problem0b   function. """
@@ -262,7 +270,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -272,6 +280,11 @@ def problem0b(n):
     ###########################################################################
     # ------------------------------------------------------------------
 
+    total = 0
+    for k in range(n-2+1):
+        if is_prime(k+2):
+            total = total +1
+            return total
 
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
@@ -330,7 +343,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -339,6 +352,14 @@ def problem0c(circle, n, window):
     ###########################################################################
     # -------------------------------------------------------------------------
 
+    circle.attach_to(window)
+    window.render(0.5)
+    x = circle.center.x + (2* circle.radius)
+    for k in range(n):
+        circle = rg.Circle(rg.Point(x,circle.center.y), circle.radius)
+        circle.attach_to(window)
+        x = x +(2*circle.radius)
+        window.render()
 
 ###############################################################################
 # Our tests use the following to print error messages in red.

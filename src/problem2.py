@@ -4,7 +4,7 @@ PRACTICE Exam 1, problem 2.
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
          their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -74,6 +74,21 @@ def run_test_problem2a():
 
 
 def problem2a(circle, rectangle, window):
+
+    circle = rg.Circle()
+    circle.attach_to(window)
+    rectangle = rg.Rectangle()
+    rectangle.attach_to(window)
+    window.continue_on_mouse()
+
+    line = rg.Line(rectangle.get_upper_right_corner(), rectangle.get_lower_left_corner())
+    line.arrow = 'last'
+    line.attach_to(window)
+    window.continue_on_mouse_click()
+
+    circle.fill_color = rectangle.outline_color
+    window.render()
+
     """
     See   problem2a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -111,6 +126,8 @@ def problem2a(circle, rectangle, window):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
+
+
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
