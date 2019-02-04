@@ -75,15 +75,17 @@ def run_test_problem2a():
 
 def problem2a(circle, rectangle, window):
 
-    circle = rg.Circle()
+
     circle.attach_to(window)
-    rectangle = rg.Rectangle()
+    #rectangle = rg.Rectangle()
     rectangle.attach_to(window)
-    window.continue_on_mouse()
+    window.render()
+    window.continue_on_mouse_click()
 
     line = rg.Line(rectangle.get_upper_right_corner(), rectangle.get_lower_left_corner())
     line.arrow = 'last'
     line.attach_to(window)
+    window.render()
     window.continue_on_mouse_click()
 
     circle.fill_color = rectangle.outline_color
@@ -118,7 +120,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------

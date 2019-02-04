@@ -28,6 +28,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 
 import testing_helper
 import time
+
 import math
 
 def main():
@@ -181,7 +182,7 @@ def problem1a(m, n):
 
     total = 0
     for k in range(m**2, (n**2)+1):
-        total = total.math.sin(k)
+        total = total + math.sin(k)
     return total
 
 def run_test_problem1b():
